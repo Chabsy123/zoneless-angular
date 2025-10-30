@@ -1,7 +1,7 @@
 <!-- First scenario -->
 <h2>First Scenario</h2>
 {{ counter() }}
-<button (click)="counter.set(count() + 1)">Update</button>
+<button (click)="counter.set(counter() + 1)">Update</button>
 
 <!-- Second scenario -->
  <h2>Second Scenario</h2>
@@ -18,7 +18,7 @@
 
   <!-- Fourth scenario -->
    <h2>Fourth Scenario</h2>
-{{ click() }}
+   {{ click() }}
 
 <!-- Fifth scenario -->
  <h2>Fifth Scenario</h2>
@@ -29,5 +29,11 @@
     <h2>Sixth Scenario</h2>
     <!-- <pre>{{ data2 | json }}</pre> -->
      <pre>{{ data2() | json }}</pre>
+
+
+<!-- Seventh scenario -->
+    <h2>Seventh Scenario</h2>
+    <app-scenario-child-component [data3]="data3()"></app-scenario-child-component>
+    <button (click)="updateData2()">Update</button>
 
 

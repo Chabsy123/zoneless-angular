@@ -3,11 +3,12 @@ import { HttpClient } from '@angular/common/http';
 import { toSignal } from '@angular/core/rxjs-interop';
 import { JsonPipe } from '@angular/common';
 import { Observable } from 'rxjs';
+import { ScenarioChildComponent } from "../scenario-child-component/scenario-child-component";
 
 
 @Component({
   selector: 'app-scenario-component',
-  imports: [JsonPipe],
+  imports: [JsonPipe, ScenarioChildComponent],
   templateUrl: './scenario-component.html',
   styleUrl: './scenario-component.scss',
 })
@@ -36,12 +37,13 @@ throw new Error('Method not implemented.');
   //   setInterval(() => {
   //   this.count++;
   // }, 1000);
-  // constructor() {
-  //   setInterval(() => {
-  //     // Proper signal update
-  //     this.click.set(this.click() + 1);
-  //   }, 1000);
-  // }
+  constructor() {
+    setInterval(() => {
+//  Proper signal update
+
+      this.click.set(this.click() + 1);
+    }, 1000);
+  }
 
   // Fifth scenario
     count = signal(0);
@@ -69,5 +71,12 @@ throw new Error('Method not implemented.');
 //  But if you’re using Signals or Zone-less Angular, you need manual change detection (markForCheck()) for updates outside Angular’s context.
 //  It’s imperative, verbose, and can be error-prone if you forget to trigger it.
     this.data2.set(newValue);
+  }
+
+  // Seventh scenario
+  data3 = signal({ name: 'Initial Data' });
+
+  updateData2() {
+    this.data3.set({ name: 'Updated Data' });
   }
 }
