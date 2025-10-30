@@ -1,7 +1,33 @@
 <!-- First scenario -->
-
-{{ count() }}
-<button (click)="count.set(count() + 1)">Update</button>
+<h2>First Scenario</h2>
+{{ counter() }}
+<button (click)="counter.set(count() + 1)">Update</button>
 
 <!-- Second scenario -->
+ <h2>Second Scenario</h2>
 <pre>{{ data() | json }}</pre>
+
+<!-- Third scenario
+ with no async pipe as it throws an error in Angular 20-
+<pre>{{ posts$ | async | json }}</pre>
+-->
+<h2>Third Scenario</h2>
+
+<!-- so we use the syntax below -->
+  <pre>{{ posts$ | json }}</pre>
+
+  <!-- Fourth scenario -->
+   <h2>Fourth Scenario</h2>
+{{ click() }}
+
+<!-- Fifth scenario -->
+ <h2>Fifth Scenario</h2>
+ <button (click)="increment()">Increment</button>
+ {{ count() }}
+
+ <!-- Sixth scenario -->
+    <h2>Sixth Scenario</h2>
+    <!-- <pre>{{ data2 | json }}</pre> -->
+     <pre>{{ data2() | json }}</pre>
+
+
